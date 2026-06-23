@@ -319,6 +319,22 @@ body {
     color: var(--bg-primary);
 }
 
+.btn-download {
+    background: transparent;
+    color: var(--text-primary);
+    border: 2px solid #7c3aed;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-download:hover {
+    background: #7c3aed;
+    color: var(--text-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(124, 58, 237, 0.4);
+}
+
 .hero-social {
     display: flex;
     gap: 20px;

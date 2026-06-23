@@ -124,7 +124,7 @@ if (canvas) {
             nodes.push({
                 x: x,
                 y: y,
-                radius: 8,
+                radius: 5,
                 label: labels[i],
                 pulse: 0
             });
@@ -140,7 +140,7 @@ if (canvas) {
         }
         
         // Create data particles
-        for (let i = 0; i < 30; i++) {
+        for (let i = 0; i < 15; i++) {
             particles.push(createParticle());
         }
     }
@@ -149,33 +149,33 @@ if (canvas) {
         return {
             x: Math.random() * width,
             y: Math.random() * height,
-            vx: (Math.random() - 0.5) * 2,
-            vy: (Math.random() - 0.5) * 2,
-            size: Math.random() * 3 + 1,
-            alpha: Math.random() * 0.5 + 0.3,
+            vx: (Math.random() - 0.5) * 1.5,
+            vy: (Math.random() - 0.5) * 1.5,
+            size: Math.random() * 2 + 0.5,
+            alpha: Math.random() * 0.3 + 0.1,
             color: Math.random() > 0.5 ? '#00d4ff' : '#7c3aed'
         };
     }
     
     function drawNode(node, index) {
         // Pulse effect
-        node.pulse += 0.05;
-        const pulseRadius = node.radius + Math.sin(node.pulse) * 3;
+        node.pulse += 0.03;
+        const pulseRadius = node.radius + Math.sin(node.pulse) * 2;
         
         // Glow effect
-        const gradient = ctx.createRadialGradient(node.x, node.y, 0, node.x, node.y, pulseRadius * 2);
-        gradient.addColorStop(0, 'rgba(0, 212, 255, 0.4)');
+        const gradient = ctx.createRadialGradient(node.x, node.y, 0, node.x, node.y, pulseRadius * 1.5);
+        gradient.addColorStop(0, 'rgba(0, 212, 255, 0.2)');
         gradient.addColorStop(1, 'rgba(0, 212, 255, 0)');
         
         ctx.beginPath();
-        ctx.arc(node.x, node.y, pulseRadius * 2, 0, Math.PI * 2);
+        ctx.arc(node.x, node.y, pulseRadius * 1.5, 0, Math.PI * 2);
         ctx.fillStyle = gradient;
         ctx.fill();
         
         // Main node
         ctx.beginPath();
         ctx.arc(node.x, node.y, pulseRadius, 0, Math.PI * 2);
-        ctx.fillStyle = '#00d4ff';
+        ctx.fillStyle = 'rgba(0, 212, 255, 0.6)';
         ctx.fill();
         
         // Inner dot
@@ -199,12 +199,12 @@ if (canvas) {
         ctx.beginPath();
         ctx.moveTo(fromNode.x, fromNode.y);
         ctx.lineTo(toNode.x, toNode.y);
-        ctx.strokeStyle = 'rgba(0, 212, 255, 0.2)';
-        ctx.lineWidth = 2;
+        ctx.strokeStyle = 'rgba(0, 212, 255, 0.1)';
+        ctx.lineWidth = 1;
         ctx.stroke();
         
         // Animated data flow
-        conn.progress += 0.01;
+        conn.progress += 0.008;
         if (conn.progress > 1) conn.progress = 0;
         
         const flowX = fromNode.x + (toNode.x - fromNode.x) * conn.progress;
@@ -235,8 +235,8 @@ if (canvas) {
     }
     
     function drawDataFlowText() {
-        ctx.fillStyle = 'rgba(0, 212, 255, 0.1)';
-        ctx.font = '12px Inter, sans-serif';
+        ctx.fillStyle = 'rgba(0, 212, 255, 0.05)';
+        ctx.font = '11px Inter, sans-serif';
         ctx.textAlign = 'left';
         
         const texts = ['ETL', 'SQL', 'Python', 'Pipeline', 'Warehouse', 'Analytics'];
@@ -244,7 +244,7 @@ if (canvas) {
         
         texts.forEach((text, i) => {
             const x = (width / (texts.length + 1)) * (i + 1);
-            const y = height - 50 + Math.sin(time + i) * 10;
+            const y = height - 40 + Math.sin(time + i) * 8;
             ctx.fillText(text, x, y);
         });
     }

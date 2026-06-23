@@ -86,14 +86,23 @@ body {
 }
 
 .nav-logo {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--text-primary);
+    display: flex;
+    align-items: center;
     text-decoration: none;
-    background: var(--gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+}
+
+.logo-img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--accent);
+    transition: var(--transition);
+}
+
+.logo-img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
 }
 
 .nav-menu {

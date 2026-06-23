@@ -152,8 +152,8 @@ if (canvas) {
             vx: (Math.random() - 0.5) * 1.5,
             vy: (Math.random() - 0.5) * 1.5,
             size: Math.random() * 2 + 0.5,
-            alpha: Math.random() * 0.3 + 0.1,
-            color: Math.random() > 0.5 ? '#00d4ff' : '#7c3aed'
+            alpha: Math.random() * 0.2 + 0.05,
+            color: '#808088'
         };
     }
     
@@ -164,8 +164,8 @@ if (canvas) {
         
         // Glow effect
         const gradient = ctx.createRadialGradient(node.x, node.y, 0, node.x, node.y, pulseRadius * 1.5);
-        gradient.addColorStop(0, 'rgba(0, 212, 255, 0.2)');
-        gradient.addColorStop(1, 'rgba(0, 212, 255, 0)');
+        gradient.addColorStop(0, 'rgba(100, 100, 110, 0.15)');
+        gradient.addColorStop(1, 'rgba(100, 100, 110, 0)');
         
         ctx.beginPath();
         ctx.arc(node.x, node.y, pulseRadius * 1.5, 0, Math.PI * 2);
@@ -175,18 +175,18 @@ if (canvas) {
         // Main node
         ctx.beginPath();
         ctx.arc(node.x, node.y, pulseRadius, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(0, 212, 255, 0.6)';
+        ctx.fillStyle = 'rgba(120, 120, 130, 0.5)';
         ctx.fill();
         
         // Inner dot
         ctx.beginPath();
         ctx.arc(node.x, node.y, pulseRadius * 0.4, 0, Math.PI * 2);
-        ctx.fillStyle = '#0a0a1a';
+        ctx.fillStyle = '#0d0d0f';
         ctx.fill();
         
         // Label
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
-        ctx.font = '10px Inter, sans-serif';
+        ctx.fillStyle = 'rgba(160, 160, 165, 0.5)';
+        ctx.font = '9px Inter, sans-serif';
         ctx.textAlign = 'center';
         ctx.fillText(node.label, node.x, node.y + 25);
     }
@@ -199,7 +199,7 @@ if (canvas) {
         ctx.beginPath();
         ctx.moveTo(fromNode.x, fromNode.y);
         ctx.lineTo(toNode.x, toNode.y);
-        ctx.strokeStyle = 'rgba(0, 212, 255, 0.1)';
+        ctx.strokeStyle = 'rgba(60, 60, 65, 0.3)';
         ctx.lineWidth = 1;
         ctx.stroke();
         
@@ -211,8 +211,8 @@ if (canvas) {
         const flowY = fromNode.y + (toNode.y - fromNode.y) * conn.progress;
         
         ctx.beginPath();
-        ctx.arc(flowX, flowY, 4, 0, Math.PI * 2);
-        ctx.fillStyle = '#00d4ff';
+        ctx.arc(flowX, flowY, 3, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(140, 140, 150, 0.4)';
         ctx.fill();
     }
     
@@ -235,8 +235,8 @@ if (canvas) {
     }
     
     function drawDataFlowText() {
-        ctx.fillStyle = 'rgba(0, 212, 255, 0.05)';
-        ctx.font = '11px Inter, sans-serif';
+        ctx.fillStyle = 'rgba(80, 80, 85, 0.08)';
+        ctx.font = '10px Inter, sans-serif';
         ctx.textAlign = 'left';
         
         const texts = ['ETL', 'SQL', 'Python', 'Pipeline', 'Warehouse', 'Analytics'];
@@ -244,7 +244,7 @@ if (canvas) {
         
         texts.forEach((text, i) => {
             const x = (width / (texts.length + 1)) * (i + 1);
-            const y = height - 40 + Math.sin(time + i) * 8;
+            const y = height - 30 + Math.sin(time + i) * 5;
             ctx.fillText(text, x, y);
         });
     }

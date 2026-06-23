@@ -731,67 +731,36 @@ body {
     color: var(--accent);
 }
 
-.contact-form {
+.contact-telegram {
     background: var(--bg-card);
     padding: 40px;
     border-radius: 12px;
     border: 1px solid rgba(0, 212, 255, 0.1);
+    text-align: center;
 }
 
-.form-group {
-    position: relative;
-    margin-bottom: 25px;
-}
-
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 15px;
-    background: var(--bg-secondary);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
+.contact-telegram h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
     color: var(--text-primary);
-    font-family: inherit;
-    font-size: 1rem;
-    transition: var(--transition);
 }
 
-.form-group input:focus,
-.form-group textarea:focus {
-    outline: none;
-    border-color: var(--accent);
-}
-
-.form-group label {
-    position: absolute;
-    left: 15px;
-    top: 15px;
+.contact-telegram > p {
     color: var(--text-secondary);
-    transition: var(--transition);
-    pointer-events: none;
+    margin-bottom: 30px;
 }
 
-.form-group input:focus + label,
-.form-group input:not(:placeholder-shown) + label,
-.form-group textarea:focus + label,
-.form-group textarea:not(:placeholder-shown) + label {
-    top: -10px;
-    left: 10px;
-    font-size: 0.85rem;
-    background: var(--bg-card);
-    padding: 0 5px;
+.telegram-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.telegram-handle {
     color: var(--accent);
-}
-
-.form-group textarea {
-    resize: vertical;
-    min-height: 120px;
-}
-
-.btn-submit {
-    width: 100%;
-    border: none;
-    font-size: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
 }
 
 /* Footer */

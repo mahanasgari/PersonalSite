@@ -203,9 +203,19 @@ body {
     50% { transform: translate(30px, 30px); }
 }
 
+.pipeline-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.6;
+}
+
 .hero-content {
     position: relative;
-    z-index: 1;
+    z-index: 2;
     text-align: center;
 }
 
@@ -873,5 +883,109 @@ body {
     
     .contact-container {
         grid-template-columns: 1fr;
+    }
+}
+
+/* Data Flow Animations */
+@keyframes dataFlow {
+    0% { transform: translateX(-100%); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateX(100%); opacity: 0; }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.2); opacity: 0.7; }
+}
+
+@keyframes nodeGlow {
+    0%, 100% { box-shadow: 0 0 10px rgba(0, 212, 255, 0.3); }
+    50% { box-shadow: 0 0 25px rgba(0, 212, 255, 0.6); }
+}
+
+/* Timeline enhanced animations */
+.timeline-item {
+    animation: fadeInUp 0.6s ease-out forwards;
+    opacity: 0;
+}
+
+.timeline-item:nth-child(1) { animation-delay: 0.1s; }
+.timeline-item:nth-child(2) { animation-delay: 0.2s; }
+.timeline-item:nth-child(3) { animation-delay: 0.3s; }
+.timeline-item:nth-child(4) { animation-delay: 0.4s; }
+.timeline-item:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Skill bar enhanced animation */
+.skill-item {
+    animation: slideInLeft 0.5s ease-out forwards;
+    opacity: 0;
+}
+
+.skill-item:nth-child(odd) { animation-delay: 0.1s; }
+.skill-item:nth-child(even) { animation-delay: 0.2s; }
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Project card hover enhanced */
+.project-card {
+    animation: scaleIn 0.5s ease-out forwards;
+    opacity: 0;
+}
+
+.project-card:nth-child(1) { animation-delay: 0.1s; }
+.project-card:nth-child(2) { animation-delay: 0.2s; }
+.project-card:nth-child(3) { animation-delay: 0.3s; }
+.project-card:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Education card animation */
+.education-card {
+    animation: rotateIn 0.6s ease-out forwards;
+    opacity: 0;
+}
+
+.education-card:nth-child(1) { animation-delay: 0.1s; }
+.education-card:nth-child(2) { animation-delay: 0.2s; }
+.education-card:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes rotateIn {
+    from {
+        opacity: 0;
+        transform: rotateY(-10deg) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: rotateY(0) translateY(0);
     }
 }

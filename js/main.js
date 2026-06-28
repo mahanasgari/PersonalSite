@@ -62,13 +62,23 @@ if (hamburger) {
     hamburger.addEventListener('click', () => {
         hamburger.classList.toggle('active');
         navMenu.classList.toggle('active');
+        document.body.classList.toggle('menu-open');
     });
-    
+
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', () => {
             hamburger.classList.remove('active');
             navMenu.classList.remove('active');
+            document.body.classList.remove('menu-open');
         });
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+            document.body.classList.remove('menu-open');
+        }
     });
 }
 
@@ -154,7 +164,8 @@ skillBars.forEach(bar => skillObserver.observe(bar));
 // ============ DATA PIPELINE ANIMATION (OPTIONAL) ============
 
 const canvas = document.getElementById('pipelineCanvas');
-if (canvas) {
+const isMobile = window.innerWidth <= 768;
+if (canvas && !isMobile) {
     const ctx = canvas.getContext('2d');
     let width, height;
     let particles = [];

@@ -3,12 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mahan Asgari | Data Developer & Analyst</title>
-    <meta name="description" content="Personal portfolio of Mahan Asgari - Data Developer & Analyst with 3+ years of experience">
+    <title>Mahan Asgari | Analytics Engineer & Data Engineer</title>
+    <meta name="description" content="Personal portfolio of Mahan Asgari - Analytics Engineer & Data Engineer with 3+ years of experience">
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Floating Pill Navigation -->
+    <header class="floating-nav" id="floatingNav">
+        <nav class="nav-pill">
+            <div class="nav-indicator" id="navIndicator"></div>
+            <a href="#hero" class="nav-icon active" data-section="hero" aria-label="Home">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                <span class="nav-tooltip">Home</span>
+            </a>
+            <a href="#about" class="nav-icon" data-section="about" aria-label="About">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                <span class="nav-tooltip">About</span>
+            </a>
+            <a href="#services" class="nav-icon" data-section="services" aria-label="Services">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                <span class="nav-tooltip">Services</span>
+            </a>
+            <a href="#projects" class="nav-icon" data-section="projects" aria-label="Work">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                <span class="nav-tooltip">Work</span>
+            </a>
+            <a href="#contact" class="nav-icon" data-section="contact" aria-label="Contact">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                <span class="nav-tooltip">Contact</span>
+            </a>
+        </nav>
+    </header>
+
+    <!-- Mobile Navigation -->
     <nav class="navbar">
         <div class="nav-container">
             <a href="#" class="nav-logo">
@@ -17,10 +45,9 @@
             <ul class="nav-menu">
                 <li><a href="#hero" class="nav-link active">Home</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
                 <li><a href="#experience" class="nav-link">Experience</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#education" class="nav-link">Education</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#projects" class="nav-link">Work</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
             <div class="hamburger">
@@ -32,110 +59,163 @@
     </nav>
 
     <main>
+        <!-- Hero Section -->
         <section id="hero" class="hero">
-            <div class="hero-background">
+            <div class="hero-bg">
                 <div class="gradient-orb"></div>
                 <div class="gradient-orb"></div>
                 <canvas id="pipelineCanvas" class="pipeline-canvas"></canvas>
             </div>
             <div class="container hero-content">
-                <p class="hero-subtitle">Hello, I'm</p>
-                <h1 class="hero-title">Mahan Asgari</h1>
-                <p class="hero-role">Data Developer & Analyst</p>
-                <p class="hero-description">
-                    Transforming complex datasets into actionable insights and scalable data solutions.
-                </p>
-                <div class="hero-stats">
-                    <div class="stat">
-                        <span class="stat-number">3+</span>
-                        <span class="stat-label">Years Experience</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">15+</span>
-                        <span class="stat-label">Projects Completed</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">5+</span>
-                        <span class="stat-label">Companies</span>
-                    </div>
+                <div class="hero-badge">
+                    <span class="ping-dot"></span>
+                    Available for work
                 </div>
+                <img src="assets/profile.jpg" alt="Mahan Asgari" class="hero-avatar">
+                <h1 class="hero-title">
+                    <span class="word-reveal">Analytics</span>
+                    <span class="word-reveal italic accent">Engineer</span>
+                </h1>
+                <p class="hero-subtitle">Transforming complex datasets into actionable insights and scalable data solutions.</p>
                 <div class="hero-cta">
-                    <a href="#contact" class="btn btn-primary">Get In Touch</a>
-                    <a href="#experience" class="btn btn-secondary">View Experience</a>
-                    <a href="MahanAsgari_2026-05-15.pdf" download class="btn btn-download">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
-                        Download Resume
+                    <a href="#contact" class="anim-btn">
+                        <span class="anim-btn-text">Let's Talk</span>
+                        <span class="anim-btn-clone">Let's Talk</span>
                     </a>
                 </div>
+                <!-- Marquee Skills -->
+                <div class="marquee-section">
+                    <div class="marquee-mask">
+                        <div class="marquee-track">
+                            <span>SQL</span><span class="dot">•</span>
+                            <span>Python</span><span class="dot">•</span>
+                            <span>Power BI</span><span class="dot">•</span>
+                            <span>Tableau</span><span class="dot">•</span>
+                            <span>Data Warehousing</span><span class="dot">•</span>
+                            <span>ETL/ELT</span><span class="dot">•</span>
+                            <span>Metabase</span><span class="dot">•</span>
+                            <span>SSIS/SSAS</span><span class="dot">•</span>
+                            <span>SQL Server</span><span class="dot">•</span>
+                            <span>MongoDB</span><span class="dot">•</span>
+                            <span>SQL</span><span class="dot">•</span>
+                            <span>Python</span><span class="dot">•</span>
+                            <span>Power BI</span><span class="dot">•</span>
+                            <span>Tableau</span><span class="dot">•</span>
+                            <span>Data Warehousing</span><span class="dot">•</span>
+                            <span>ETL/ELT</span><span class="dot">•</span>
+                            <span>Metabase</span><span class="dot">•</span>
+                            <span>SSIS/SSAS</span><span class="dot">•</span>
+                            <span>SQL Server</span><span class="dot">•</span>
+                            <span>MongoDB</span><span class="dot">•</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Stats -->
+                <div class="hero-stats">
+                    <div class="stat"><span class="stat-number">3+</span><span class="stat-label">Years Experience</span></div>
+                    <div class="stat"><span class="stat-number">15+</span><span class="stat-label">Projects</span></div>
+                    <div class="stat"><span class="stat-number">5+</span><span class="stat-label">Companies</span></div>
+                </div>
+                <!-- Social Links -->
                 <div class="hero-social">
-                    <a href="mailto:mahanasgary@outlook.com" class="social-link" title="Email">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    <a href="https://linkedin.com/in/mahanasgari" target="_blank" class="social-icon" aria-label="LinkedIn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                     </a>
-                    <a href="https://linkedin.com/in/mahanasgari" target="_blank" class="social-link" title="LinkedIn">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    <a href="https://t.me/AsgariMahan" target="_blank" class="social-icon" aria-label="Telegram">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
                     </a>
-                    <a href="https://t.me/bromahan" target="_blank" class="social-link" title="Telegram">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+                    <a href="https://github.com/mahanasgari" target="_blank" class="social-icon" aria-label="GitHub">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    </a>
+                    <a href="https://x.com/mahanasgari" target="_blank" class="social-icon" aria-label="X / Twitter">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </a>
+                    <a href="https://instagram.com/mahanasgari" target="_blank" class="social-icon" aria-label="Instagram">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </a>
+                    <a href="mailto:mahanasgary@outlook.com" class="social-icon" aria-label="Email">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
                     </a>
                 </div>
             </div>
+            <div class="hero-watermark">
+                <p class="text-stroke">MAHAN ASGARI</p>
+            </div>
         </section>
 
+        <!-- About Section -->
         <section id="about" class="section">
-            <div class="container">
-                <h2 class="section-title">About Me</h2>
-                <div class="about-content">
+            <div class="container section-inner">
+                <h2 class="section-label">About</h2>
+                <div class="about-grid">
                     <div class="about-text">
-                        <p>
-                            Data Analyst / BI Engineer / Data Engineer with 3+ years of experience in data analysis, 
-                            reporting, and data infrastructure. Skilled in designing and implementing data solutions 
-                            using SQL, Python, and BI tools (Power BI, Tableau, Superset, Metabase).
+                        <img src="assets/profile.jpg" alt="Mahan Asgari" class="about-avatar">
+                        <p class="about-lead">
+                            Analytics Engineer & Data Engineer with 3+ years of experience building
+                            scalable data solutions and turning complex datasets into
+                            actionable insights.
                         </p>
                         <p>
-                            Experienced in data warehouse design, ETL automation, and performance analysis. Strong 
-                            problem-solving skills, cross-team collaboration, and hands-on expertise in both analytics 
-                            and data engineering.
+                            Experienced in data warehouse design, ETL automation, and
+                            performance analysis. Strong problem-solving skills, cross-team
+                            collaboration, and hands-on expertise in both analytics and
+                            data engineering.
                         </p>
-                        <p>
-                            Adept at transforming complex datasets into actionable insights and scalable data solutions.
-                        </p>
-                        <div class="about-details">
-                            <div class="detail-item">
-                                <span class="detail-label">Location:</span>
-                                <span class="detail-value">Tehran, Iran</span>
-                            </div>
-                            <div class="detail-item">
-                                <span class="detail-label">Email:</span>
-                                <span class="detail-value">mahanasgary@outlook.com</span>
-                            </div>
-                            <div class="detail-item">
-                                <span class="detail-label">Phone:</span>
-                                <span class="detail-value">+989934821390</span>
-                            </div>
+                    </div>
+                    <div class="about-info">
+                        <div class="info-row"><span class="info-label">Location</span><span>Tehran, Iran</span></div>
+                        <div class="info-row"><span class="info-label">Email</span><a href="mailto:mahanasgary@outlook.com">mahanasgary@outlook.com</a></div>
+                        <div class="info-row"><span class="info-label">Phone</span><a href="tel:+989934821390">+989934821390</a></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="section">
+            <div class="container">
+                <h2 class="section-label">What I Do</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-number">01</div>
+                        <h3>Data Analysis & BI</h3>
+                        <p>Building interactive dashboards and reports using Power BI, Tableau, Metabase, and Superset to drive data-driven decisions.</p>
+                        <div class="service-tags">
+                            <span>Power BI</span><span>Tableau</span><span>Metabase</span><span>Superset</span>
                         </div>
                     </div>
-                    <div class="about-skills">
-                        <h3>Key Skills</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">SQL</span>
-                            <span class="skill-tag">Python</span>
-                            <span class="skill-tag">Power BI</span>
-                            <span class="skill-tag">Tableau</span>
-                            <span class="skill-tag">Metabase</span>
-                            <span class="skill-tag">Superset</span>
-                            <span class="skill-tag">Data Warehousing</span>
-                            <span class="skill-tag">ETL/ELT</span>
-                            <span class="skill-tag">SSIS</span>
-                            <span class="skill-tag">SSAS</span>
+                    <div class="service-card">
+                        <div class="service-number">02</div>
+                        <h3>Data Engineering</h3>
+                        <p>Designing and implementing ETL/ELT pipelines, data warehouses, and automated data infrastructure.</p>
+                        <div class="service-tags">
+                            <span>SQL</span><span>Python</span><span>ETL</span><span>SSIS</span>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-number">03</div>
+                        <h3>Backend Development</h3>
+                        <p>Building backend services and APIs using Python frameworks for analytics-ready data delivery.</p>
+                        <div class="service-tags">
+                            <span>Django</span><span>FastAPI</span><span>Flask</span><span>REST APIs</span>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-number">04</div>
+                        <h3>Cloud & DevOps</h3>
+                        <p>Deploying and managing cloud infrastructure with high-availability workflows on AWS.</p>
+                        <div class="service-tags">
+                            <span>AWS</span><span>DevOps</span><span>Cloud</span><span>CI/CD</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Experience Section -->
         <section id="experience" class="section">
             <div class="container">
-                <h2 class="section-title">Experience</h2>
+                <h2 class="section-label">Experience</h2>
                 <div class="timeline">
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
@@ -146,10 +226,7 @@
                             </div>
                             <h4 class="timeline-company">P.Y MetaStudio</h4>
                             <p class="timeline-location">Dubai, UAE · Hybrid</p>
-                            <p class="timeline-description">
-                                A multidisciplinary Metaverse company building immersive virtual solutions 
-                                for industries such as retail, education, healthcare, and real estate.
-                            </p>
+                            <p class="timeline-description">A multidisciplinary Metaverse company building immersive virtual solutions.</p>
                             <ul class="timeline-list">
                                 <li>Designed and implemented end-to-end data pipelines for collecting, validating, transforming, and storing structured and semi-structured data from multiple devices and platforms.</li>
                                 <li>Built backend services using Django, Flask, and FastAPI, exposing analytics-ready APIs consumed by interactive dashboards built with Chart.js.</li>
@@ -158,7 +235,6 @@
                             </ul>
                         </div>
                     </div>
-
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
@@ -168,9 +244,7 @@
                             </div>
                             <h4 class="timeline-company">Tapsi Company</h4>
                             <p class="timeline-location">Tehran, Iran · OnSite</p>
-                            <p class="timeline-description">
-                                Iranian ridesharing company with over 40 million users.
-                            </p>
+                            <p class="timeline-description">Iranian ridesharing company with over 40 million users.</p>
                             <ul class="timeline-list">
                                 <li>Designed the driver data warehouse, improving accessibility and consistency of operational data.</li>
                                 <li>Built multiple dashboards in Metabase, Superset, and Tableau, covering driver acquisition funnels, referral campaigns, lead quality, and loyalty KPIs.</li>
@@ -179,7 +253,6 @@
                             </ul>
                         </div>
                     </div>
-
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
@@ -189,9 +262,7 @@
                             </div>
                             <h4 class="timeline-company">Sourena Market Company</h4>
                             <p class="timeline-location">Tehran, Iran · OnSite</p>
-                            <p class="timeline-description">
-                                Subsidiary of Golrang Industrial Group, chain supermarkets and distribution.
-                            </p>
+                            <p class="timeline-description">Subsidiary of Golrang Industrial Group, chain supermarkets and distribution.</p>
                             <ul class="timeline-list">
                                 <li>Analyzed Sales (Amount, Invoices Orders, Discount, Weight) and SaleTarget Reports on PowerBI.</li>
                                 <li>Handled 40% of support services, resolving customer and seller queries efficiently.</li>
@@ -199,7 +270,6 @@
                             </ul>
                         </div>
                     </div>
-
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
@@ -209,9 +279,7 @@
                             </div>
                             <h4 class="timeline-company">Gajmarket Company</h4>
                             <p class="timeline-location">Tehran, Iran · OnSite</p>
-                            <p class="timeline-description">
-                                Marketplace for books and stationery with 5+ years of activity in Iran.
-                            </p>
+                            <p class="timeline-description">Marketplace for books and stationery with 5+ years of activity in Iran.</p>
                             <ul class="timeline-list">
                                 <li>ETL and cleaning data.</li>
                                 <li>Provided actionable insights and suggestions to enhance organizational data analysis.</li>
@@ -219,7 +287,6 @@
                             </ul>
                         </div>
                     </div>
-
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
@@ -240,126 +307,135 @@
             </div>
         </section>
 
+        <!-- Skills Section -->
         <section id="skills" class="section">
             <div class="container">
-                <h2 class="section-title">Skills</h2>
-                <div class="skills-container">
-                    <div class="skills-category">
-                        <h3 class="skills-category-title">Technical Skills</h3>
-                        <div class="skills-grid">
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">SQL</span>
-                                    <span class="skill-level">Advanced</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="90"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">Python</span>
-                                    <span class="skill-level">Intermediate</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="70"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">Power BI</span>
-                                    <span class="skill-level">Intermediate</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="75"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">SSIS / SSAS</span>
-                                    <span class="skill-level">Intermediate</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="70"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">SQL Server</span>
-                                    <span class="skill-level">Intermediate</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="75"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">Tableau</span>
-                                    <span class="skill-level">Dashboarding</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="65"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">Metabase / Superset</span>
-                                    <span class="skill-level">Intermediate</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="70"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">Data Warehousing</span>
-                                    <span class="skill-level">Advanced</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="85"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">ETL/ELT Pipelines</span>
-                                    <span class="skill-level">Advanced</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="85"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">MongoDB</span>
-                                    <span class="skill-level">Basic</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="40"></div>
-                                </div>
-                            </div>
+                <h2 class="section-label">Skills</h2>
+                <div class="marquee-section reverse">
+                    <div class="marquee-mask">
+                        <div class="marquee-track">
+                            <span>SQL</span><span class="dot">•</span>
+                            <span>Python</span><span class="dot">•</span>
+                            <span>Power BI</span><span class="dot">•</span>
+                            <span>Tableau</span><span class="dot">•</span>
+                            <span>Data Warehousing</span><span class="dot">•</span>
+                            <span>ETL/ELT</span><span class="dot">•</span>
+                            <span>Metabase</span><span class="dot">•</span>
+                            <span>SSIS/SSAS</span><span class="dot">•</span>
+                            <span>SQL Server</span><span class="dot">•</span>
+                            <span>MongoDB</span><span class="dot">•</span>
+                            <span>SQL</span><span class="dot">•</span>
+                            <span>Python</span><span class="dot">•</span>
+                            <span>Power BI</span><span class="dot">•</span>
+                            <span>Tableau</span><span class="dot">•</span>
+                            <span>Data Warehousing</span><span class="dot">•</span>
+                            <span>ETL/ELT</span><span class="dot">•</span>
+                            <span>Metabase</span><span class="dot">•</span>
+                            <span>SSIS/SSAS</span><span class="dot">•</span>
+                            <span>SQL Server</span><span class="dot">•</span>
+                            <span>MongoDB</span><span class="dot">•</span>
                         </div>
                     </div>
-                    
-                    <div class="skills-category">
-                        <h3 class="skills-category-title">Soft Skills</h3>
-                        <div class="soft-skills">
-                            <span class="soft-skill-tag">Problem Solving</span>
-                            <span class="soft-skill-tag">Creativity</span>
-                            <span class="soft-skill-tag">Communication</span>
-                            <span class="soft-skill-tag">Flexibility</span>
-                            <span class="soft-skill-tag">Teamwork</span>
-                            <span class="soft-skill-tag">Attention to Details</span>
-                            <span class="soft-skill-tag">Responsibility</span>
-                            <span class="soft-skill-tag">Ideator</span>
+                </div>
+                <div class="skills-detail-grid">
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">SQL</span>
+                            <span class="skill-level">Advanced</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="90"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Python</span>
+                            <span class="skill-level">Intermediate</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="70"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Power BI</span>
+                            <span class="skill-level">Intermediate</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="75"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">SSIS / SSAS</span>
+                            <span class="skill-level">Intermediate</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="70"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">SQL Server</span>
+                            <span class="skill-level">Intermediate</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="75"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Tableau</span>
+                            <span class="skill-level">Dashboarding</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="65"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Metabase / Superset</span>
+                            <span class="skill-level">Intermediate</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="70"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Data Warehousing</span>
+                            <span class="skill-level">Advanced</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="85"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">ETL/ELT Pipelines</span>
+                            <span class="skill-level">Advanced</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="85"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">MongoDB</span>
+                            <span class="skill-level">Basic</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="40"></div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Education Section -->
         <section id="education" class="section">
             <div class="container">
-                <h2 class="section-title">Education</h2>
+                <h2 class="section-label">Education</h2>
                 <div class="education-grid">
                     <div class="education-card">
                         <div class="education-icon">
@@ -386,7 +462,6 @@
                         <p class="education-date">February 2024</p>
                     </div>
                 </div>
-
                 <h3 class="certifications-title">Certifications & Courses</h3>
                 <div class="certifications-grid">
                     <div class="cert-card">
@@ -429,71 +504,159 @@
             </div>
         </section>
 
+        <!-- Projects Section -->
         <section id="projects" class="section">
             <div class="container">
-                <h2 class="section-title">Projects</h2>
-                <div class="projects-grid">
-                    <div class="project-card">
-                        <div class="project-image">
+                <div class="section-header">
+                    <h2 class="section-label">Latest Work</h2>
+                </div>
+                <div class="projects-list">
+                    <a href="#" class="project-row">
+                        <div class="project-row-image">
                             <div class="project-placeholder">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg>
                             </div>
                         </div>
-                        <div class="project-info">
+                        <div class="project-row-info">
                             <h3>Data Warehouse Design</h3>
                             <p>Designed and implemented driver data warehouse for Tapsi, improving data accessibility and consistency.</p>
                             <div class="project-tech">
-                                <span>SQL</span>
-                                <span>Python</span>
-                                <span>Metabase</span>
+                                <span>SQL</span><span>Python</span><span>Metabase</span>
                             </div>
                         </div>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-image">
+                        <span class="project-arrow">→</span>
+                    </a>
+                    <a href="#" class="project-row">
+                        <div class="project-row-image">
                             <div class="project-placeholder">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.01-.25 1.97-.7 2.8l1.46 1.46C19.54 15.03 20 13.57 20 12c0-4.42-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6 0-1.01.25-1.97.7-2.8L5.24 7.74C4.46 8.97 4 10.43 4 12c0 4.42 3.58 8 8 8v3l4-4-4-4v3z"/></svg>
                             </div>
                         </div>
-                        <div class="project-info">
+                        <div class="project-row-info">
                             <h3>ETL Automation Pipeline</h3>
                             <p>Built automated ETL scripts for daily reporting processes, reducing manual effort by 40%.</p>
                             <div class="project-tech">
-                                <span>Python</span>
-                                <span>SQL</span>
-                                <span>Automation</span>
+                                <span>Python</span><span>SQL</span><span>Automation</span>
                             </div>
                         </div>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-image">
+                        <span class="project-arrow">→</span>
+                    </a>
+                    <a href="#" class="project-row">
+                        <div class="project-row-image">
                             <div class="project-placeholder">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="currentColor"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"/></svg>
                             </div>
                         </div>
-                        <div class="project-info">
+                        <div class="project-row-info">
                             <h3>Cloud Gaming Platform</h3>
                             <p>Designed and deployed cloud-based gaming platform on AWS with high-availability DevOps workflows.</p>
                             <div class="project-tech">
-                                <span>AWS</span>
-                                <span>DevOps</span>
-                                <span>Cloud</span>
+                                <span>AWS</span><span>DevOps</span><span>Cloud</span>
                             </div>
                         </div>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-image">
+                        <span class="project-arrow">→</span>
+                    </a>
+                    <a href="#" class="project-row">
+                        <div class="project-row-image">
                             <div class="project-placeholder">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="currentColor"><path d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z"/></svg>
                             </div>
                         </div>
-                        <div class="project-info">
+                        <div class="project-row-info">
                             <h3>Real-time Analytics Dashboard</h3>
                             <p>Built interactive dashboards with Chart.js for real-time monitoring and Unreal Engine integration.</p>
                             <div class="project-tech">
-                                <span>Django</span>
-                                <span>Chart.js</span>
-                                <span>FastAPI</span>
+                                <span>Django</span><span>Chart.js</span><span>FastAPI</span>
+                            </div>
+                        </div>
+                        <span class="project-arrow">→</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Section -->
+        <section id="blog" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-label">From the Blog</h2>
+                </div>
+                <div class="blog-empty">
+                    <p>Blog posts coming soon. Stay tuned for articles on data engineering, analytics, and BI.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="section">
+            <div class="container">
+                <div class="faq-grid">
+                    <div class="faq-header">
+                        <h2 class="section-label">Frequently Asked</h2>
+                        <p class="faq-subtitle">Have a question? Check below or reach out directly.</p>
+                    </div>
+                    <div class="faq-list">
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false">
+                                <span>What tools do you use for data analysis?</span>
+                                <span class="faq-toggle">+</span>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Power BI, Tableau, Metabase, and Apache Superset for dashboards. SQL and Python for data manipulation and analysis.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false">
+                                <span>Do you work with cloud platforms?</span>
+                                <span class="faq-toggle">+</span>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Yes, I have experience deploying and managing infrastructure on AWS, including high-availability DevOps workflows.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false">
+                                <span>What is your experience with data warehousing?</span>
+                                <span class="faq-toggle">+</span>
+                            </button>
+                            <div class="faq-answer">
+                                <p>I've designed data warehouses for companies like Tapsi, improving data accessibility and consistency across the organization.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false">
+                                <span>How do you approach ETL pipeline design?</span>
+                                <span class="faq-toggle">+</span>
+                            </button>
+                            <div class="faq-answer">
+                                <p>I focus on reliability, automation, and performance. I build ETL scripts in Python and use tools like SSIS for enterprise-level data integration.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false">
+                                <span>What industries have you worked in?</span>
+                                <span class="faq-toggle">+</span>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Ride-sharing (Tapsi), retail (Sourena Market, Gajmarket), and metaverse/gaming (P.Y MetaStudio).</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false">
+                                <span>Are you open to remote work?</span>
+                                <span class="faq-toggle">+</span>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Yes, I'm open to both remote and hybrid opportunities worldwide.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false">
+                                <span>How can I contact you?</span>
+                                <span class="faq-toggle">+</span>
+                            </button>
+                            <div class="faq-answer">
+                                <p>You can reach me via Telegram at @AsgariMahan or email at mahanasgary@outlook.com.</p>
                             </div>
                         </div>
                     </div>
@@ -501,63 +664,59 @@
             </div>
         </section>
 
+        <!-- Contact Section -->
         <section id="contact" class="section">
             <div class="container">
-                <h2 class="section-title">Get In Touch</h2>
-                <div class="contact-container">
-                    <div class="contact-info">
-                        <h3>Contact Information</h3>
-                        <p>Feel free to reach out for opportunities or just a friendly hello!</p>
-                        <div class="contact-details">
-                            <div class="contact-item">
-                                <span class="contact-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                                </span>
-                                <a href="mailto:mahanasgary@outlook.com">mahanasgary@outlook.com</a>
-                            </div>
-                            <div class="contact-item">
-                                <span class="contact-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-                                </span>
-                                <a href="tel:+989934821390">+989934821390</a>
-                            </div>
-                            <div class="contact-item">
-                                <span class="contact-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                                </span>
-                                <a href="https://linkedin.com/in/mahanasgari" target="_blank">LinkedIn Profile</a>
-                            </div>
-                            <div class="contact-item">
-                                <span class="contact-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
-                                </span>
-                                <a href="https://t.me/bromahan" target="_blank">@bromahan</a>
-                            </div>
-                            <div class="contact-item">
-                                <span class="contact-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                                </span>
-                                <span>Tehran, Iran</span>
-                            </div>
-                        </div>
+                <div class="contact-cta">
+                    <h2 class="contact-heading">
+                        Let's build your
+                        <span class="italic accent">data solution.</span>
+                    </h2>
+                    <p class="contact-subtext">Open to opportunities and collaborations.</p>
+                    <a href="https://t.me/bromahan" target="_blank" class="anim-btn">
+                        <span class="anim-btn-text">Get In Touch</span>
+                        <span class="anim-btn-clone">Get In Touch</span>
+                    </a>
+                </div>
+                <div class="contact-grid">
+                    <div class="contact-col">
+                        <h3>Mahan Asgari</h3>
+                        <a href="mailto:mahanasgary@outlook.com">mahanasgary@outlook.com</a>
+                        <a href="tel:+989934821390">+989934821390</a>
                     </div>
-                    <div class="contact-telegram">
-                        <h3>Connect on Telegram</h3>
-                        <p>The fastest way to reach me is through Telegram.</p>
-                        <a href="https://t.me/bromahan" target="_blank" class="btn btn-primary telegram-btn">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
-                            Open Telegram
-                        </a>
-                        <p class="telegram-handle">@bromahan</p>
+                    <div class="contact-col">
+                        <h3>Pages</h3>
+                        <ul>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#services">Services</a></li>
+                            <li><a href="#projects">Work</a></li>
+                            <li><a href="#blog">Blog</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="contact-col">
+                        <h3>Social</h3>
+                        <ul>
+                            <li><a href="https://linkedin.com/in/mahanasgari" target="_blank">LinkedIn</a></li>
+                            <li><a href="https://t.me/bromahan" target="_blank">Telegram</a></li>
+                            <li><a href="https://github.com/mahanasgari" target="_blank">GitHub</a></li>
+                            <li><a href="https://x.com/mahanasgari" target="_blank">X / Twitter</a></li>
+                            <li><a href="https://instagram.com/mahanasgari" target="_blank">Instagram</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="footer">
-        <div class="container">
+        <div class="container footer-bottom">
             <p>&copy; 2026 Mahan Asgari. All rights reserved.</p>
+            <p class="footer-credit">Designed with passion</p>
+        </div>
+        <div class="footer-watermark">
+            <p class="text-stroke">MAHAN ASGARI</p>
         </div>
     </footer>
 

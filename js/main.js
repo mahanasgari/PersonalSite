@@ -1,100 +1,158 @@
-// Smooth scrolling for navigation links
+// ============ FLOATING NAVIGATION ============
+
+const floatingNav = document.querySelector('.floating-nav');
+const heroSection = document.querySelector('#hero');
+
+function checkNavVisibility() {
+    if (window.scrollY > window.innerHeight * 0.5) {
+        floatingNav.classList.add('visible');
+    } else {
+        floatingNav.classList.remove('visible');
+    }
+}
+window.addEventListener('scroll', checkNavVisibility);
+
+// Nav indicator positioning
+const navIcons = document.querySelectorAll('.nav-icon');
+const navIndicator = document.getElementById('navIndicator');
+
+function updateIndicator(activeIcon) {
+    if (!activeIcon || !navIndicator) return;
+    const rect = activeIcon.getBoundingClientRect();
+    const navRect = activeIcon.parentElement.getBoundingClientRect();
+    navIndicator.style.left = (rect.left - navRect.left) + 'px';
+}
+
+// Active section detection
+const sections = document.querySelectorAll('section[id]');
+
+function updateActiveSection() {
+    const scrollY = window.scrollY + window.innerHeight / 3;
+    
+    sections.forEach(section => {
+        const top = section.offsetTop;
+        const height = section.offsetHeight;
+        const id = section.getAttribute('id');
+        
+        if (scrollY >= top && scrollY < top + height) {
+            navIcons.forEach(icon => {
+                icon.classList.remove('active');
+                if (icon.dataset.section === id) {
+                    icon.classList.add('active');
+                    updateIndicator(icon);
+                }
+            });
+        }
+    });
+}
+window.addEventListener('scroll', updateActiveSection);
+
+// Initialize indicator position
+setTimeout(() => {
+    const activeIcon = document.querySelector('.nav-icon.active');
+    if (activeIcon) updateIndicator(activeIcon);
+}, 100);
+
+// ============ MOBILE NAVIGATION ============
+
+const hamburger = document.querySelector('.hamburger');
+const navMenu = document.querySelector('.nav-menu');
+
+if (hamburger) {
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
+    
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        });
+    });
+}
+
+// ============ FAQ ACCORDION ============
+
+document.querySelectorAll('.faq-question').forEach(button => {
+    button.addEventListener('click', () => {
+        const item = button.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        
+        // Close all items
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        
+        // Toggle current
+        if (!isOpen) {
+            item.classList.add('open');
+        }
+        
+        // Update aria
+        button.setAttribute('aria-expanded', !isOpen);
+    });
+});
+
+// ============ WORD REVEAL ANIMATION ============
+
+const wordReveals = document.querySelectorAll('.word-reveal');
+wordReveals.forEach((word, i) => {
+    word.style.opacity = '0';
+    word.style.transform = 'translateY(110%)';
+    word.style.transition = `transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) ${i * 0.1}s, opacity 0.6s ease ${i * 0.1}s`;
+    
+    setTimeout(() => {
+        word.style.opacity = '1';
+        word.style.transform = 'translateY(0)';
+    }, 300 + i * 100);
+});
+
+// ============ SCROLL REVEAL ============
+
+const revealElements = document.querySelectorAll('.service-card, .project-row, .faq-item, .about-grid, .skills-detail-grid, .education-card, .cert-card');
+
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            revealObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+revealElements.forEach((el, i) => {
+    el.classList.add('reveal');
+    el.style.transitionDelay = `${i * 0.05}s`;
+    revealObserver.observe(el);
+});
+
+// ============ SMOOTH SCROLL ============
+
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-            target.scrollIntoView({ behavior: 'smooth' });
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
     });
 });
 
-// Navbar scroll effect
-window.addEventListener('scroll', () => {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-    }
-});
+// ============ SKILL BARS ============
 
-// Mobile menu toggle
-const hamburger = document.querySelector('.hamburger');
-const navMenu = document.querySelector('.nav-menu');
-
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
-});
-
-// Close mobile menu when clicking a link
-document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
-    });
-});
-
-// Active link highlighting on scroll
-const sections = document.querySelectorAll('section[id]');
-
-window.addEventListener('scroll', () => {
-    const scrollY = window.pageYOffset;
-    
-    sections.forEach(section => {
-        const sectionHeight = section.offsetHeight;
-        const sectionTop = section.offsetTop - 100;
-        const sectionId = section.getAttribute('id');
-        
-        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-            document.querySelector(`.nav-link[href="#${sectionId}"]`)?.classList.add('active');
-        } else {
-            document.querySelector(`.nav-link[href="#${sectionId}"]`)?.classList.remove('active');
-        }
-    });
-});
-
-// Animate skill bars on scroll
 const skillBars = document.querySelectorAll('.skill-progress');
-
-const animateSkillBars = (entries) => {
+const skillObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             const progress = entry.target.getAttribute('data-progress');
             entry.target.style.width = `${progress}%`;
         }
     });
-};
-
-const skillObserver = new IntersectionObserver(animateSkillBars, {
-    threshold: 0.5
-});
+}, { threshold: 0.5 });
 
 skillBars.forEach(bar => skillObserver.observe(bar));
 
-// Scroll reveal animation
-const revealElements = document.querySelectorAll('.section-title, .timeline-item, .skill-item, .education-card, .project-card, .contact-telegram');
+// ============ DATA PIPELINE ANIMATION (OPTIONAL) ============
 
-const revealOnScroll = (entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('revealed');
-        }
-    });
-};
-
-const revealObserver = new IntersectionObserver(revealOnScroll, {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-});
-
-revealElements.forEach(el => {
-    el.classList.add('reveal');
-    revealObserver.observe(el);
-});
-
-// Data Pipeline Animation
 const canvas = document.getElementById('pipelineCanvas');
 if (canvas) {
     const ctx = canvas.getContext('2d');
@@ -114,7 +172,6 @@ if (canvas) {
         nodes = [];
         connections = [];
         
-        // Create pipeline nodes (data sources, transformations, destinations)
         const nodeCount = 8;
         const labels = ['Source', 'Extract', 'Transform', 'Validate', 'Load', 'Store', 'Analyze', 'Output'];
         
@@ -130,7 +187,6 @@ if (canvas) {
             });
         }
         
-        // Create connections between nodes
         for (let i = 0; i < nodes.length - 1; i++) {
             connections.push({
                 from: i,
@@ -139,7 +195,6 @@ if (canvas) {
             });
         }
         
-        // Create data particles
         for (let i = 0; i < 15; i++) {
             particles.push(createParticle());
         }
@@ -157,12 +212,10 @@ if (canvas) {
         };
     }
     
-    function drawNode(node, index) {
-        // Pulse effect
+    function drawNode(node) {
         node.pulse += 0.03;
         const pulseRadius = node.radius + Math.sin(node.pulse) * 2;
         
-        // Glow effect
         const gradient = ctx.createRadialGradient(node.x, node.y, 0, node.x, node.y, pulseRadius * 1.5);
         gradient.addColorStop(0, 'rgba(100, 100, 110, 0.15)');
         gradient.addColorStop(1, 'rgba(100, 100, 110, 0)');
@@ -172,20 +225,17 @@ if (canvas) {
         ctx.fillStyle = gradient;
         ctx.fill();
         
-        // Main node
         ctx.beginPath();
         ctx.arc(node.x, node.y, pulseRadius, 0, Math.PI * 2);
         ctx.fillStyle = 'rgba(120, 120, 130, 0.5)';
         ctx.fill();
         
-        // Inner dot
         ctx.beginPath();
         ctx.arc(node.x, node.y, pulseRadius * 0.4, 0, Math.PI * 2);
-        ctx.fillStyle = '#0d0d0f';
+        ctx.fillStyle = '#000000';
         ctx.fill();
         
-        // Label
-        ctx.fillStyle = 'rgba(160, 160, 165, 0.5)';
+        ctx.fillStyle = 'rgba(160, 160, 160, 0.5)';
         ctx.font = '9px Inter, sans-serif';
         ctx.textAlign = 'center';
         ctx.fillText(node.label, node.x, node.y + 25);
@@ -195,7 +245,6 @@ if (canvas) {
         const fromNode = nodes[conn.from];
         const toNode = nodes[conn.to];
         
-        // Draw line
         ctx.beginPath();
         ctx.moveTo(fromNode.x, fromNode.y);
         ctx.lineTo(toNode.x, toNode.y);
@@ -203,7 +252,6 @@ if (canvas) {
         ctx.lineWidth = 1;
         ctx.stroke();
         
-        // Animated data flow
         conn.progress += 0.008;
         if (conn.progress > 1) conn.progress = 0;
         
@@ -212,14 +260,14 @@ if (canvas) {
         
         ctx.beginPath();
         ctx.arc(flowX, flowY, 3, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(140, 140, 150, 0.4)';
+        ctx.fillStyle = 'rgba(140, 140, 140, 0.4)';
         ctx.fill();
     }
     
     function drawParticle(particle) {
         ctx.beginPath();
         ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
-        ctx.fillStyle = particle.color.replace(')', `, ${particle.alpha})`).replace('rgb', 'rgba');
+        ctx.fillStyle = `rgba(128, 128, 136, ${particle.alpha})`;
         ctx.fill();
     }
     
@@ -227,53 +275,28 @@ if (canvas) {
         particle.x += particle.vx;
         particle.y += particle.vy;
         
-        // Wrap around edges
         if (particle.x < 0) particle.x = width;
         if (particle.x > width) particle.x = 0;
         if (particle.y < 0) particle.y = height;
         if (particle.y > height) particle.y = 0;
     }
     
-    function drawDataFlowText() {
-        ctx.fillStyle = 'rgba(80, 80, 85, 0.08)';
-        ctx.font = '10px Inter, sans-serif';
-        ctx.textAlign = 'left';
-        
-        const texts = ['ETL', 'SQL', 'Python', 'Pipeline', 'Warehouse', 'Analytics'];
-        const time = Date.now() * 0.001;
-        
-        texts.forEach((text, i) => {
-            const x = (width / (texts.length + 1)) * (i + 1);
-            const y = height - 30 + Math.sin(time + i) * 5;
-            ctx.fillText(text, x, y);
-        });
-    }
-    
     function animate() {
         ctx.clearRect(0, 0, width, height);
         
-        // Draw particles
         particles.forEach(particle => {
             updateParticle(particle);
             drawParticle(particle);
         });
         
-        // Draw connections
         connections.forEach(drawConnection);
-        
-        // Draw nodes
         nodes.forEach(drawNode);
-        
-        // Draw floating text
-        drawDataFlowText();
         
         requestAnimationFrame(animate);
     }
     
-    // Initialize and start animation
     resizeCanvas();
     animate();
     
-    // Handle resize
     window.addEventListener('resize', resizeCanvas);
 }
